@@ -9,6 +9,16 @@ public class SunExplosion : MonoBehaviour
     [SerializeField] private float explosionForce = 500f;
     [SerializeField] private float explosionDuration = 5f;
 
+    void Start()
+    {
+        sunObject = GameObject.FindGameObjectWithTag("Sun");
+        if (sunObject == null)
+        {
+            Debug.LogError("Sun object not found! Please ensure it has the tag 'Sun'.");
+            return;
+        }
+    }
+
     void Update()
     {
         // Check for backspace key press to trigger the explosion
